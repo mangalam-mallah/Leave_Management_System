@@ -19,7 +19,10 @@ pipeline {
         stage('Build App') {
             steps {
                 sh '''
-                chmod +x mvnw
+                ls -l mvnw
+                sed -i 's/\\r$//' mvnw
+                chmod 755 mvnw
+                ls -l mvnw
                 ./mvnw clean package -DskipTests
                 '''
             }
