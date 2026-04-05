@@ -15,13 +15,6 @@ pipeline {
     }
 
     stages {
-
-        stage('Build App') {
-            steps {
-                sh 'mvn clean package -DskipTests'
-            }
-        }
-
         stage('Run Containers') {
             steps {
                 sh '''
